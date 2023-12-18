@@ -5,7 +5,7 @@ function Header() {
 	return (
 		<div className={styles.container}>
 			<h1>Contact App</h1>
-			<p><span>mohammad</span> | profilto</p>
+			<p><a href='https://github.com/mohammadrashid6732'>mohammad</a> | profilto</p>
 		</div>
 	)
 }
