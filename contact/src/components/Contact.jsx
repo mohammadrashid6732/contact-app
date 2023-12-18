@@ -1,16 +1,12 @@
-
 import { useState } from 'react';
+
+
 import styles from './Contact.module.css';
 import ContactList from './ContactList';
+import  inputs  from '../constants/input';
 
 function Contact() {
-	const inputs =
-		[
-			{ type: 'text', placeholder: 'Name', name: 'name' },
-			{ type: 'text', placeholder: 'LastName', name: 'lastname' },
-			{ type: 'email', placeholder: 'Email', name: 'email' },
-			{ type: 'number', placeholder: 'Phone', name: 'phone' }
-		];
+
 	const [contact, setContact] = useState({
 		name: '',
 		lastname: '',
