@@ -1,0 +1,25 @@
+/** @format */
+.container {
+	margin-top: 100px;
+}
+.container h1 {
+	color: rgb(0, 0, 255);
+}
+.container h1,
+p {
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.container p {
+	font-size: 20px;
+	margin: 10px;
+}
+.container span {
+	background: rgba(52, 52, 245, 0.663);
+	padding: 5px;
+	color: white;
+	border-radius: 10px;
+	margin: 5px;
+}
