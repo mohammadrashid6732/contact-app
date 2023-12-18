@@ -1,8 +1,16 @@
+
 import { useState } from 'react';
 import styles from './Contact.module.css';
 import ContactList from './ContactList';
 
 function Contact() {
+	const inputs =
+		[
+			{ type: 'text', placeholder: 'Name', name: 'name' },
+			{ type: 'text', placeholder: 'LastName', name: 'lastname' },
+			{ type: 'email', placeholder: 'Email', name: 'email' },
+			{ type: 'number', placeholder: 'Phone', name: 'phone' }
+		];
 	const [contact, setContact] = useState({
 		name: '',
 		lastname: '',
@@ -10,6 +18,8 @@ function Contact() {
 		phone: '',
 	})
 	const [contacts, setContacts] = useState([]);
+	const [alert, setAlert] = useState("");
+
 
 	const changeHandler = (event) => {
 		const name = event.target.name;
@@ -19,6 +29,15 @@ function Contact() {
 	}
 
 	const addHandler = () => {
+
+		if (!contact.name || !contact.lastname || !contact.email || !contact.phone) {
+			setAlert('data is not valid')
+			return;
+		}
+
+		setAlert('')
+
+
 		setContacts((contacts) => [...contacts, contact])
 		console.log(contacts)
 		setContact({
@@ -31,13 +50,13 @@ function Contact() {
 
 	return (
 		<div className={styles.container}>
-			<input type="text" placeholder='Name' value={contact.name} name='name' onChange={changeHandler} />
-			<input type="text" placeholder='LastName' value={contact.lastname} name='lastname' onChange={changeHandler} />
-			<input type="text" placeholder='Email' value={contact.email} name='email' onChange={changeHandler} />
-			<input type="number" placeholder='Phone' value={contact.phone} name='phone' onChange={changeHandler} />
+			{inputs.map((input, index) => (
+				<input key={index} name={input.name} placeholder={input.placeholder} type={input.type} value={contact[input.name]} onChange={changeHandler} />
+			))}
 			<button onClick={addHandler}>Add Contact</button>
-
+			<div>{alert && <p>{alert}</p>}</div>
 			<ContactList contacts={contacts} />
+
 		</div>
 	)
 }

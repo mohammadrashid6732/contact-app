@@ -3,7 +3,20 @@
 function ContactList({ contacts }) {
 	console.log(contacts)
 	return (
-		<div>ContactList</div>
+		<div>
+			{contacts.name}
+			{/* {contacts.map(item => (
+				<div key={item.phone}>
+					{item.name}
+					<br />
+					{item.lastname}
+					<br />
+					{item.email}
+					<br />
+					{item.phone}
+				</div>
+			))} */}
+		</div>
 	)
 }
 
